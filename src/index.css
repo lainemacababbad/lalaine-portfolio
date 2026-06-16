@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+
+:root {
+  --color-bg-base: #FAF8F4;
+  --color-text-primary: #2C2C2A;
+  --color-text-muted: #888780;
+  --color-accent-crimson: #8B1A1A;
+  --color-accent-purple: #5B3A8A;
+  --color-accent-berry: #C4507A;
+  --color-accent-matcha: #3B5A3A;
+  --color-footer-bg: #2C2C2A;
+  --grid-color: rgba(136, 135, 128, 0.12);
+  --grid-size: 32px;
+  --font-family: 'Lato', sans-serif;
+  --section-padding-x: 80px;
+  --section-padding-y: 80px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+  background-image:
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size);
+}
