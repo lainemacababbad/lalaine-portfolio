@@ -1,0 +1,167 @@
+.work {
+    padding: 60px 80px;
+}
+
+.work__header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 64px;
+}
+
+.work__divider-line {
+    flex: 1;
+    height: 0.5px;
+    background: var(--color-text-muted);
+}
+
+.work__label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+}
+
+.work__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.work__card {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 0.5px solid rgba(136, 135, 128, 0.25);
+    background: rgba(250, 248, 244, 0.8);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
+}
+
+.work__card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(44, 44, 42, 0.08);
+}
+
+/* .work__card--crimson:hover {
+    border-color: var(--color-accent-crimson);
+}
+
+.work__card--matcha:hover {
+    border-color: var(--color-accent-matcha);
+} */
+
+.work__card-thumb {
+    height: 450px;
+    background: #ffffff;
+}
+
+.work__card-thumb-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* .work__card--matcha .work__card-thumb {
+    background: rgba(59, 90, 58, 0.08);
+} */
+
+.work__card-body {
+    padding: 20px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.work__card-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+.work__card-title {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--color-text-primary);
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+}
+
+.work__card-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    margin-top: 4px;
+}
+
+/* Coming soon card */
+.work__card--placeholder {
+    border: 1.5px dashed rgba(136, 135, 128, 0.3);
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 280px;
+}
+
+.work__card--placeholder:hover {
+    border-color: rgba(136, 135, 128, 0.5);
+    transform: none;
+    box-shadow: none;
+}
+
+.work__card-placeholder-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.work__card-placeholder-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1.5px dashed var(--color-text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: var(--color-text-muted);
+    line-height: 1;
+}
+
+.work__card-placeholder-text {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+/* Tablet */
+@media (max-width: 1199px) {
+    .work {
+        padding: 80px 48px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    .work {
+        padding: 60px 24px;
+    }
+
+    .work__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .work__card--placeholder {
+        min-height: 160px;
+    }
+}
