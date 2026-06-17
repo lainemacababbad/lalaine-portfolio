@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 import './Nav.css'
 
-const links = ['home', 'work', 'about', 'playground', 'contact']
+const links = ['home', 'work', 'about', 'contact']
+// remember to add 'playground' back to links array when adding playground page
 
 export default function Nav() {
   const [active, setActive] = useState('home')
