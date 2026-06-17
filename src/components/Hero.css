@@ -86,28 +86,59 @@
 }
 
 .hero__room {
-    flex: 1;
-    max-width: 580px;
-}
-
-.hero__room-placeholder {
-    width: 200%;
-    height: 580px;
-    background: rgba(196, 168, 130, 0.2);
-    border-radius: 0 0 16px 16px;
+    flex: 1.5;           /* increase this to give it more space */
+    max-width: none;     /* remove the cap */
     display: flex;
     align-items: center;
-    justify-content: center;
-    border: 1px dashed rgba(136, 135, 128, 0.3);
+    min-height: 500px;
+    background: rgba(196, 168, 130, 0.15);
+    border-radius: 0 0 16px 16px;
 }
 
-.hero__room-label {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--color-text-muted);
+.hero__room-img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
+
+.hero__room-scene {
+    position: relative;
+    width: 100%;
+}
+
+.hotspot {
+    position: absolute;
+    cursor: pointer;
+}
+
+.hotspot__tooltip {
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-text-primary);
+    color: var(--color-bg-base);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 8px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.hotspot:hover .hotspot__tooltip {
+    opacity: 1;
+}
+
+/* .hotspot {
+    position: absolute;
+    cursor: pointer;
+    background: rgba(255, 0, 0, 0.3);
+} */
+
+
 
 /* Tablet */
 @media (max-width: 1199px) {
@@ -118,10 +149,6 @@
 
     .hero__name {
         font-size: 52px;
-    }
-
-    .hero__room-placeholder {
-        height: 480px;
     }
 }
 
@@ -151,10 +178,5 @@
     .hero__room {
         max-width: 100%;
         width: 100%;
-    }
-
-    .hero__room-placeholder {
-        height: 320px;
-        border-radius: 16px;
     }
 }
