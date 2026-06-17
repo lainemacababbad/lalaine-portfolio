@@ -24,7 +24,7 @@ export default function Footer() {
                     </div>
                     <div className="footer__link-item">
                         <span className="footer__link-label">LinkedIn</span>
-                        <a href="https://linkedin.com/in/lalaine-macababbad" target="_blank" rel="noreferrer" className="footer__link">
+                        <a href="https://www.linkedin.com/in/lalainemacababbad/" target="_blank" rel="noreferrer" className="footer__link">
                             lalaine-macababbad
                         </a>
                     </div>

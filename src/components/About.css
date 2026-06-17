@@ -1,5 +1,5 @@
 .about {
-    padding: 80px 80px;
+    padding: 80px 80px 160px;
 }
 
 /* Header */
@@ -216,9 +216,8 @@
     padding-bottom: 0;
 }
 
-.about__fact-emoji {
-    font-size: 22px;
-    line-height: 1;
+.about__fact-icon {
+    color: var(--color-accent-crimson);
     flex-shrink: 0;
     margin-top: 2px;
 }
@@ -228,6 +227,14 @@
     font-weight: 700;
     color: var(--color-text-primary);
     line-height: 1.4;
+}
+
+.about__fact-flag {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    border-radius: 50%;
 }
 
 /* Tablet */

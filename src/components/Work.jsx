@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import './Work.css'
 import pieceOfCakeThumb from '../pages/finalUI1.png'
+import vitaminTrackerThumb from '../pages/VTThumbnail.png'
 
 const projects = [
     {
@@ -8,8 +9,9 @@ const projects = [
         tag: 'UX / Mobile',
         title: 'Vitamin Tracker',
         description: 'Helping people actually remember their supplements.',
-        link: 'https://lalaine.framer.website/vitamin-tracker',
-        accent: 'crimson'
+        link: '/vitamin-tracker',
+        accent: 'crimson',
+        thumb: vitaminTrackerThumb
     },
     {
         id: 'matchamap',
@@ -40,20 +42,24 @@ export default function Work() {
             </div>
 
             <div className="work__grid">
-                {projects.map(({ id, tag, title, description, link, accent }, i) => (
+                {projects.map(({ id, tag, title, description, link, accent, thumb }, i) => (
                     <motion.a
                         key={id}
                         href={link}
                         className={`work__card work__card--${accent}`}
-                        target={link !== '#' ? '_blank' : undefined}
-                        rel="noreferrer"
                         variants={cardVariants}
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: '-80px' }}
                         custom={i}
                     >
-                        <div className="work__card-thumb" />
+                        <div className="work__card-thumb">
+                            {thumb ? (
+                                <img src={thumb} alt={title} className="work__card-thumb-img" />
+                            ) : (
+                                <div className="work__card-thumb-placeholder">Coming soon</div>
+                            )}
+                        </div>
                         <div className="work__card-body">
                             <p className="work__card-tag">{tag}</p>
                             <h3 className="work__card-title">{title}</h3>
@@ -63,23 +69,23 @@ export default function Work() {
                 ))}
 
                 <motion.a
-    href="/piece-of-cake"
-    className="work__card work__card--berry"
-    variants={cardVariants}
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true, margin: '-80px' }}
-    custom={2}
->
-    <div className="work__card-thumb">
-        <img src={pieceOfCakeThumb} alt="Piece of Cake project" className="work__card-thumb-img" />
-    </div>
-    <div className="work__card-body">
-        <p className="work__card-tag">UX / Mobile + Desktop</p>
-        <h3 className="work__card-title">Piece of Cake</h3>
-        <p className="work__card-desc">Redesigning custom cake ordering for customers and bakers.</p>
-    </div>
-</motion.a>
+                    href="/piece-of-cake"
+                    className="work__card work__card--berry"
+                    variants={cardVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: '-80px' }}
+                    custom={2}
+                >
+                    <div className="work__card-thumb">
+                        <img src={pieceOfCakeThumb} alt="Piece of Cake project" className="work__card-thumb-img" />
+                    </div>
+                    <div className="work__card-body">
+                        <p className="work__card-tag">UX / Mobile + Desktop</p>
+                        <h3 className="work__card-title">Piece of Cake</h3>
+                        <p className="work__card-desc">Redesigning custom cake ordering for customers and bakers.</p>
+                    </div>
+                </motion.a>
             </div>
         </section>
     )

@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import './About.css'
+import { Coffee, BookOpen, Sprout, Camera, MapPin } from 'lucide-react'
+import phFlag from 'circle-flags/flags/ph.svg'
 
 const skills = [
     'Figma', 'Framer', 'React Native', 'Adobe CC',
@@ -8,24 +10,24 @@ const skills = [
 ]
 
 const funFacts = [
-    { emoji: '🇵🇭', text: 'Filipino. Proud of it.' },
-    { emoji: '🍵', text: 'Matcha addict. Oat milk only, lactose intolerant but unbothered.' },
-    { emoji: '📚', text: 'Reads everything. Buying books and reading books are two separate hobbies.' },
-    { emoji: '🌱', text: 'Stardew year 3. Just married. Priorities in order.' },
-    { emoji: '📷', text: 'Trying to be a photographer. Emphasis on aspiring.' },
-    { emoji: '☕', text: 'Café hunter. Surrey to Vancouver, one matcha at a time.' },
+    { isFlag: true, text: 'Filipino. Proud of it.' },
+    { icon: Coffee, text: 'Matcha addict. Oat milk only, lactose intolerant but unbothered.' },
+    { icon: BookOpen, text: 'Reads everything. Buying books and reading books are two separate hobbies.' },
+    { icon: Sprout, text: 'Stardew year 3. Just married. Priorities in order.' },
+    { icon: Camera, text: 'Trying to be a photographer. Emphasis on aspiring.' },
+    { icon: MapPin, text: 'Café hunter. Surrey to Vancouver, one matcha at a time.' },
 ]
 
 const leftCards = [
-    { color: '#E8D5C4', rotate: -8,  fanRotate: -24, fanX: -110, fanY:  20 },
-    { color: '#D4C5B5', rotate: -3,  fanRotate: -10, fanX: -50,  fanY:  8  },
-    { color: '#C4B5A5', rotate:  2,  fanRotate:  6,  fanX:  10,  fanY: -4  },
+    { color: '#E8D5C4', rotate: -8, fanRotate: -24, fanX: -110, fanY: 20 },
+    { color: '#D4C5B5', rotate: -3, fanRotate: -10, fanX: -50, fanY: 8 },
+    { color: '#C4B5A5', rotate: 2, fanRotate: 6, fanX: 10, fanY: -4 },
 ]
 
 const rightCards = [
-    { color: '#C4B5A5', rotate: -2,  fanRotate: -6,  fanX: -10,  fanY:  4  },
-    { color: '#D4C5B5', rotate:  3,  fanRotate:  10, fanX:  50,  fanY: -8  },
-    { color: '#E8D5C4', rotate:  8,  fanRotate:  24, fanX:  110, fanY: -20 },
+    { color: '#C4B5A5', rotate: -2, fanRotate: -6, fanX: -10, fanY: 4 },
+    { color: '#D4C5B5', rotate: 3, fanRotate: 10, fanX: 50, fanY: -8 },
+    { color: '#E8D5C4', rotate: 8, fanRotate: 24, fanX: 110, fanY: -20 },
 ]
 
 const fadeUp = {
@@ -57,20 +59,20 @@ function PhotoStack({ cards, side }) {
                     style={{ background: card.color }}
                     animate={{
                         rotate: clicked
-                            ? card.fanRotate * 1.4
+                            ? card.fanRotate * 0.5
                             : hovered
-                            ? card.fanRotate
-                            : card.rotate,
+                                ? card.fanRotate
+                                : card.rotate,
                         x: clicked
-                            ? card.fanX * 1.4
+                            ? card.fanX * 2.4
                             : hovered
-                            ? card.fanX * 0.6
-                            : 0,
+                                ? card.fanX * 0.6
+                                : 0,
                         y: clicked
-                            ? card.fanY * 1.4
+                            ? card.fanY * 0.6
                             : hovered
-                            ? -6
-                            : 0,
+                                ? -6
+                                : 0,
                         scale: clicked ? 1.04 : 1,
                     }}
                     transition={{
@@ -175,7 +177,7 @@ export default function About() {
 
                         {/* Facts center */}
                         <div className="about__facts">
-                            {funFacts.map(({ emoji, text }, i) => (
+                            {funFacts.map(({ icon: Icon, isFlag, text }, i) => (
                                 <motion.div
                                     key={text}
                                     className="about__fact"
@@ -184,7 +186,11 @@ export default function About() {
                                     animate="visible"
                                     custom={i}
                                 >
-                                    <span className="about__fact-emoji">{emoji}</span>
+                                    {isFlag ? (
+                                        <img src={phFlag} alt="Philippines flag" className="about__fact-flag" />
+                                    ) : (
+                                        <Icon className="about__fact-icon" size={22} strokeWidth={1.75} />
+                                    )}
                                     <p className="about__fact-text">{text}</p>
                                 </motion.div>
                             ))}

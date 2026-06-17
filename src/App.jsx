@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
@@ -6,6 +7,8 @@ import About from './components/About'
 import Footer from './components/Footer'
 import PieceOfCake from './pages/PieceOfCake'
 import './index.css'
+
+const VitaminTracker = lazy(() => import('./pages/VitaminTracker'))
 
 export default function App() {
     return (
@@ -23,6 +26,11 @@ export default function App() {
                     </>
                 } />
                 <Route path="/piece-of-cake" element={<PieceOfCake />} />
+                <Route path="/vitamin-tracker" element={
+                    <Suspense fallback={<div style={{ padding: '120px', textAlign: 'center' }}>Loading...</div>}>
+                        <VitaminTracker />
+                    </Suspense>
+                } />
             </Routes>
         </>
     )
